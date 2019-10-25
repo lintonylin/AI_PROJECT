@@ -1,4 +1,4 @@
-from dataset.syllabels.syllables import sylco
+from dataset.syllabels_preprocessing.syllables import sylco
 import codecs
 from tqdm import tqdm
 '''
