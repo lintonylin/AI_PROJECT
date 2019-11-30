@@ -6,8 +6,11 @@ import numpy as np
 import os
 # data I/O
 module_path = os.path.dirname(__file__)    
-#filename = module_path + '/input.txt'
-data = open(module_path + '/input.txt', 'r',encoding="utf8").read() # should be simple plain text file
+data = open(module_path + '/input_oneline1.txt', 'r',encoding="utf8").read() # cpoypaste datset for 7 times
+#data = open(module_path + '/input_oneline.txt', 'r',encoding="utf8").read() # a poem is in one line and seperate each line of the poem by '+'
+#data = open(module_path + '/input_withplus.txt', 'r',encoding="utf8").read() # a '+' is after each line of a poem
+#data = open(module_path + '/input.txt', 'r',encoding="utf8").read() # pure text without any special sysmbol
+
 chars = list(set(data))
 data_size, vocab_size = len(data), len(chars)
 print('data has %d characters, %d unique.' % (data_size, vocab_size))
@@ -94,8 +97,9 @@ while True:
 
   # sample from the model now and then
   if n % 100 == 0:
-    sample_ix = sample(hprev, inputs[0], 200)
+    sample_ix = sample(hprev, inputs[0], 50)
     txt = ''.join(ix_to_char[ix] for ix in sample_ix)
+
     print('----\n %s \n----' % (txt, ))
 
   # forward seq_length characters through the net and fetch gradient

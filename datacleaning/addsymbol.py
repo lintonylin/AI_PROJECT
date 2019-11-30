@@ -21,8 +21,8 @@ with open(module_path + '/Haikus_nosymbol.txt',"r",encoding="utf8") as f:
         s1 = str(line)
         if poem_flag == 1:
             line_count += 1
-            s1.rstrip('\n')    #TODO is not working as expected 
-            s1 = s1 + '+\n'
+            s1 = s1.strip() 
+            s1 = s1 + ' +\n'
         if line_count == 2:
             line_count = 0
             poem_flag = 0
