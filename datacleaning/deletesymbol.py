@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 #from langdetect import detect
+import os
+
 def is_alphabet(uchar):
     if (uchar >= u'\u0041' and uchar <= u'\u005a') or (uchar >= u'\u0061' and uchar <= u'\u007a'):
         return True
@@ -13,7 +15,8 @@ count = 0
 det_flag = 0
 det_count = 0
 discord_flag = 0
-with open(".\\input.txt","r",encoding="utf8") as f:
+module_path = os.path.dirname(__file__) 
+with open(module_path + '/input.txt',"r",encoding="utf8") as f:
     lines = f.readlines()
     for line in lines:
         s1 = str(line) #3
@@ -23,7 +26,7 @@ with open(".\\input.txt","r",encoding="utf8") as f:
     lines_new.append(line1)
     f.close()
 
-with open(".\\Haikus_nosymbol.txt","w",encoding="utf8") as n:
+with open(module_path + '/Haikus_nosymbol.txt',"w",encoding="utf8") as n:
     for line_new in lines_new:
         n.write(line_new)
     n.close()
