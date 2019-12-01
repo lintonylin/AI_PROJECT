@@ -94,13 +94,39 @@ while True:
     p = 0 # go from start of data
   inputs = [char_to_ix[ch] for ch in data[p:p+seq_length]]
   targets = [char_to_ix[ch] for ch in data[p+1:p+seq_length+1]]
-
+  countd = 0
+  countplus = 0
+  countpoem = 0 
   # sample from the model now and then
   if n % 100 == 0:
-    sample_ix = sample(hprev, inputs[0], 50)
+    print('poem generator:\n----')
+    sample_ix = sample(hprev, inputs[0], 500)
     txt = ''.join(ix_to_char[ix] for ix in sample_ix)
+    txt = txt.strip('\n')
+    disp = ''
+    for a in range(len(txt)):
+      if txt[a] == '+':
+        countplus += 1
+        if countplus != 3:
+          disp += txt[a]
+      elif txt[a] != '\n':
+        disp += txt[a]
 
-    print('----\n %s \n----' % (txt, ))
+      if countplus == 3:
+        # print(disp)
+        # print(len(disp))
+        if (len(disp)<=70) & (len(disp) >= 20):
+          countpoem +=1
+          countplus = 0
+          disp += '\n'
+          print(disp)
+          disp = ''
+        else:
+          disp = ''
+          countplus = 0
+      if countpoem == 3:
+        break
+    print('----')
 
   # forward seq_length characters through the net and fetch gradient
   loss, dWxh, dWhh, dWhy, dbh, dby, hprev = lossFun(inputs, targets, hprev)

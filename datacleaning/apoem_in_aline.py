@@ -12,8 +12,6 @@ with open(module_path + '/Haikus_nosymbol.txt',"r",encoding="utf8") as f:
         s1 = str(line)
         
         line_count += 1
-        if line_count == 1:            
-            str1 = s1
         if line_count == 2:
             s1 = s1.strip()
             str2 = s1 + ' + '
@@ -22,8 +20,8 @@ with open(module_path + '/Haikus_nosymbol.txt',"r",encoding="utf8") as f:
             str3 = s1 + ' + '
         if line_count == 4:
             s1 = s1.strip()
-            str4 = s1
-            s1 = str1 + str2 + str3 + str4 + '\n'
+            str4 = s1 + ' + '
+            s1 = str2 + str3 + str4 + '\n'
             lines_new.append(s1)
             line_count = 0
 
