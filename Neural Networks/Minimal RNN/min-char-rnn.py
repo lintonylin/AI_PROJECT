@@ -100,7 +100,7 @@ while True:
   # sample from the model now and then
   if n % 100 == 0:
     print('poem generator:\n----')
-    sample_ix = sample(hprev, inputs[0], 500)
+    sample_ix = sample(hprev, inputs[0], 1000)
     txt = ''.join(ix_to_char[ix] for ix in sample_ix)
     txt = txt.strip('\n')
     disp = ''
@@ -108,7 +108,9 @@ while True:
       if txt[a] == '+':
         countplus += 1
         if countplus != 3:
-          disp += txt[a]
+          disp += '\n'
+        else:
+          disp += '\n\n'
       elif txt[a] != '\n':
         disp += txt[a]
 
@@ -119,12 +121,13 @@ while True:
           countpoem +=1
           countplus = 0
           disp += '\n'
+          print("generated poem %d" %countpoem )
           print(disp)
           disp = ''
         else:
           disp = ''
           countplus = 0
-      if countpoem == 3:
+      if countpoem == 5:
         break
     print('----')
 
