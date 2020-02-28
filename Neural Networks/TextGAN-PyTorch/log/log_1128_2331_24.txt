@@ -1,0 +1,74 @@
+====================================================================================================
+> training arguments:
+>>> if_test: 0
+>>> run_model: relgan
+>>> dataset: haiku
+>>> model_type: vanilla
+>>> loss_type: RSGAN
+>>> if_real_data: 1
+>>> cuda: 1
+>>> device: 0
+>>> shuffle: 0
+>>> gen_init: truncated_normal
+>>> dis_init: uniform
+>>> samples_num: 10000
+>>> vocab_size: 5057
+>>> mle_epoch: 150
+>>> adv_epoch: 3000
+>>> inter_epoch: 10
+>>> batch_size: 32
+>>> max_seq_len: 24
+>>> start_letter: 1
+>>> padding_idx: 0
+>>> gen_lr: 0.01
+>>> gen_adv_lr: 0.0001
+>>> dis_lr: 0.0001
+>>> clip_norm: 5.0
+>>> pre_log_step: 10
+>>> adv_log_step: 20
+>>> train_data: dataset/oracle.txt
+>>> test_data: dataset/testdata/oracle_test.txt
+>>> temp_adpt: exp
+>>> temperature: 100
+>>> ora_pretrain: 1
+>>> gen_pretrain: 0
+>>> dis_pretrain: 0
+>>> adv_g_step: 1
+>>> rollout_num: 4
+>>> gen_embed_dim: 32
+>>> gen_hidden_dim: 32
+>>> goal_size: 16
+>>> step_size: 4
+>>> mem_slots: 1
+>>> num_heads: 2
+>>> head_size: 256
+>>> d_step: 5
+>>> d_epoch: 3
+>>> adv_d_step: 5
+>>> adv_d_epoch: 3
+>>> dis_embed_dim: 64
+>>> dis_hidden_dim: 64
+>>> num_rep: 64
+>>> log_file: log/log_1128_2331_24.txt
+>>> save_root: save/20191128/haiku/relgan_vanilla_lt-RSGAN_sl24_temp100_T1128_2331_24/
+>>> signal_file: run_signal.txt
+>>> tips: vanilla RelGAN
+====================================================================================================
+Starting Generator REAL MLE Training...
+[MLE-GEN] epoch 0 : pre_loss = 3.4629, BLEU-[2, 3, 4, 5] = [0.307, 0.137, 0.076, 0.056], gen_NLL = 2.7306, self_bleu = [0.344],
+[MLE-GEN] epoch 10 : pre_loss = 1.9902, BLEU-[2, 3, 4, 5] = [0.488, 0.262, 0.145, 0.09], gen_NLL = 1.9206, self_bleu = [0.627],
+[MLE-GEN] epoch 20 : pre_loss = 1.5440, BLEU-[2, 3, 4, 5] = [0.502, 0.263, 0.145, 0.093], gen_NLL = 1.4824, self_bleu = [0.734],
+[MLE-GEN] epoch 30 : pre_loss = 1.2927, BLEU-[2, 3, 4, 5] = [0.512, 0.276, 0.146, 0.092], gen_NLL = 1.2487, self_bleu = [0.798],
+[MLE-GEN] epoch 40 : pre_loss = 1.1163, BLEU-[2, 3, 4, 5] = [0.507, 0.274, 0.145, 0.091], gen_NLL = 1.0662, self_bleu = [0.808],
+[MLE-GEN] epoch 50 : pre_loss = 1.0161, BLEU-[2, 3, 4, 5] = [0.549, 0.311, 0.164, 0.101], gen_NLL = 0.9924, self_bleu = [0.842],
+[MLE-GEN] epoch 60 : pre_loss = 0.9515, BLEU-[2, 3, 4, 5] = [0.549, 0.304, 0.168, 0.103], gen_NLL = 0.9383, self_bleu = [0.851],
+[MLE-GEN] epoch 70 : pre_loss = 0.9022, BLEU-[2, 3, 4, 5] = [0.539, 0.299, 0.16, 0.097], gen_NLL = 0.8815, self_bleu = [0.866],
+[MLE-GEN] epoch 80 : pre_loss = 0.8565, BLEU-[2, 3, 4, 5] = [0.542, 0.299, 0.145, 0.088], gen_NLL = 0.8391, self_bleu = [0.846],
+[MLE-GEN] epoch 90 : pre_loss = 0.8256, BLEU-[2, 3, 4, 5] = [0.554, 0.305, 0.159, 0.101], gen_NLL = 0.7691, self_bleu = [0.867],
+[MLE-GEN] epoch 100 : pre_loss = 0.8023, BLEU-[2, 3, 4, 5] = [0.56, 0.317, 0.161, 0.101], gen_NLL = 0.7700, self_bleu = [0.877],
+[MLE-GEN] epoch 110 : pre_loss = 0.7439, BLEU-[2, 3, 4, 5] = [0.569, 0.32, 0.176, 0.108], gen_NLL = 0.7323, self_bleu = [0.868],
+[MLE-GEN] epoch 120 : pre_loss = 0.7440, BLEU-[2, 3, 4, 5] = [0.541, 0.29, 0.147, 0.092], gen_NLL = 0.7629, self_bleu = [0.878],
+[MLE-GEN] epoch 130 : pre_loss = 0.7176, BLEU-[2, 3, 4, 5] = [0.56, 0.304, 0.153, 0.094], gen_NLL = 0.7696, self_bleu = [0.864],
+[MLE-GEN] epoch 140 : pre_loss = 0.6976, BLEU-[2, 3, 4, 5] = [0.562, 0.308, 0.17, 0.105], gen_NLL = 0.7540, self_bleu = [0.886],
+[MLE-GEN] epoch 149 : pre_loss = 0.7043, BLEU-[2, 3, 4, 5] = [0.545, 0.298, 0.156, 0.1], gen_NLL = 0.7608, self_bleu = [0.892],
+Starting Adversarial Training...

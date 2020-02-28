@@ -1,0 +1,12 @@
+perplexity:
+MinimalRNN: 814.03
+MultiLayerRNN: 309.20
+RCNN: 127.30
+
+
+BLEU-3:
+MultiLayerRNN: 0.0121
+RCNN: 
+SeqGAN: 0.404
+RelGAN: 0.357
+LeakGAN: 0.5330
